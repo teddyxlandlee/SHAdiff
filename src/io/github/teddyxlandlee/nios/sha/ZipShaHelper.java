@@ -1,12 +1,16 @@
 package io.github.teddyxlandlee.nios.sha;
 
+import net.csdn.ryz.sha.GetFileSHA256;
+
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
+import java.util.zip.ZipInputStream;
 
 public class ZipShaHelper {
     public static void main(String[] args) throws IOException {
@@ -24,8 +28,9 @@ public class ZipShaHelper {
         while (enumeration.hasMoreElements()) {
             jarEntry = enumeration.nextElement();
             String name = jarEntry.getRealName();
-
-            map1.put(name, null);
+            InputStream inputStream = file1.getInputStream(jarEntry);
+            String sha256 = GetFileSHA256.getFileSHA256(inputStream);
+            map1.put(name, sha256);
         }
     }
 }
