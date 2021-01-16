@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SHAdiff:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SHAdiff-0.1.0</output-path>
+    <root id="archive" name="SHAdiff.jar">
+      <element id="module-output" name="SHAdiff" />
+    </root>
+  </artifact>
+</component>
